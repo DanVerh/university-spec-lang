@@ -1,7 +1,9 @@
 import sys
 
+
 class InputException(Exception):
     pass
+
 
 def inputNumber():
     num = ""
@@ -16,6 +18,7 @@ def inputNumber():
         except InputException as error:
             print(error)
     return num
+
 
 def inputOperator():
     operator = ""

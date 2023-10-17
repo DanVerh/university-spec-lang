@@ -1,17 +1,21 @@
-import sys
 import math
+
 
 class CalculateException(Exception):
     pass
 
+
 def add(num1, num2):
     return num1 + num2
+
 
 def subtract(num1, num2):
     return num1 - num2
 
+
 def multiply(num1, num2):
     return num1 * num2
+
 
 def divide(num1, num2):
     try:
@@ -22,14 +26,18 @@ def divide(num1, num2):
     except CalculateException as error:
         return error
 
+
 def sqrt(num1):
     return math.sqrt(num1)
+
 
 def power(num1, num2):
     return num1 ** num2
 
+
 def remDiv(num1, num2):
     return num1 % num2
+
 
 operators = {
     '+': add,
@@ -40,6 +48,7 @@ operators = {
     '^': power,
     '%': remDiv
 }
+
 
 def calculate(num1, operator, num2=None):
     num1 = float(num1)
