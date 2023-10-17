@@ -27,7 +27,7 @@ def divide(num1, num2):
         return error
 
 
-def sqrt(num1):
+def sqrt(num1, num2):
     return math.sqrt(num1)
 
 

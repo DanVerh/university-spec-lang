@@ -30,9 +30,6 @@ def inputOperator():
                 sys.exit(1)
             elif operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
                 raise InputException("EXCEPTION: OPERATOR CAN ONLY BE +, -, /, *, sqrt, ^, or %")
-            elif operator == "sqrt":
-                num2 = None
-                return
         except InputException as error:
             print(error)
     return operator
