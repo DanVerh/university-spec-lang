@@ -6,33 +6,47 @@ class GeneralException(Exception):
 
 def inputData():
     global num1, operator, num2
+    num1 = operator = num2 = ""
+    print("Please provide the input (type exit to cancel)")
 
-    try:
-        num1 = input("Enter the first digit (ex. 1 or 1.5): ")
-        if not num1.replace(".", "", 1).isdigit():
-            raise GeneralException("EXCEPTION: NOT A DIGIT")
-    except GeneralException as error:
-        print(error)
-        sys.exit(1)
+    while not num1.replace(".", "", 1).isdigit():
+        try:
+            num1 = input("Enter the first digit (ex. 1 or 1.5): ")
+            if num1 == "exit":
+                print("Exiting the program")
+                sys.exit(1)
+            elif not num1.replace(".", "", 1).isdigit():
+                raise GeneralException("EXCEPTION: NOT A DIGIT")
+        except GeneralException as error:
+            print(error)
 
-    try:
-        operator = input("Enter the operator (+, -, /, *, sqrt, ^, %): ")
-        if operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
-            raise GeneralException("EXCEPTION: OPERATOR CAN ONLY BE +, -, /, *, sqrt, ^, or %")
-        elif operator == "sqrt":
-            num2 = None
-            return
-    except GeneralException as error:
-        print(error)
-        sys.exit(1)
+    while operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
+        try:
+            operator = input("Enter the operator (+, -, /, *, sqrt, ^, %): ")
+            if operator == "exit":
+                print("Exiting the program")
+                sys.exit(1)
+            elif operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
+                raise GeneralException("EXCEPTION: OPERATOR CAN ONLY BE +, -, /, *, sqrt, ^, or %")
+            elif operator == "sqrt":
+                num2 = None
+                return
+        except GeneralException as error:
+            print(error)
 
-    try:
-        num2 = input("Enter the second digit (ex. 1 or 1.5): ")
-        if not num2.replace(".", "", 1).isdigit():
-            raise GeneralException("EXCEPTION: NOT A DIGIT")
-    except GeneralException as error:
-        print(error)
-        sys.exit(1)
+    while not num2.replace(".", "", 1).isdigit():
+        try:
+            num2 = input("Enter the second digit (ex. 1 or 1.5): ")
+            if num2 == "exit":
+                print("Exiting the program")
+                sys.exit(1)
+            elif not num2.replace(".", "", 1).isdigit():
+                raise GeneralException("EXCEPTION: NOT A DIGIT")
+            elif operator == "exit":
+                print("Exiting the program")
+                sys.exit(1)
+        except GeneralException as error:
+            print(error)
 
 
 def calculate(num1, operator, num2=None):
