@@ -12,4 +12,8 @@ def addResult(num1, operator, num2):
         problem = num1 + operator
         result = calculate(num1, operator)
     historyDict[problem] = result
-    print(historyDict)
+
+def printHistory():
+    for index, problem in enumerate(historyDict):
+        index+=1
+        print(f"{index}. {problem} = {historyDict[problem]}")

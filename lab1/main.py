@@ -21,3 +21,5 @@ while close != "n":
             break
         elif close not in ("y", "n"):
             close = input("Please provide the correct input (y/n): ")
+
+printHistory()
