@@ -7,13 +7,13 @@ count = 0
 
 
 while close != "n":
-    historyLen = len(historyDict) + 1
+    historyLen = len(historyDict)
     if count == 0:
         num1 = inputNumber()
     else:
         option = "-1"
         while not 0 <= int(option) <= len(historyDict) + 1:
-            option = input(f"Input manually num1 - 0 or choose index up to {historyLen}: ")
+            option = input(f"Input manually num1 - 0 or choose index from history up to {historyLen}: ")
         if option == "0":
             num1 = inputNumber()
         else:

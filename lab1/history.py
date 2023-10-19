@@ -4,9 +4,25 @@ from input import InputException
 from collections import OrderedDict
 
 historyDict = OrderedDict()
+historyMax = 0
+
+
+def inputMaxHistory():
+    historyMax = ""
+    while not historyMax.isdigit():
+        try:
+            historyMax = input("Enter the maximum amount of calculate records that you want to save: ")
+            if not historyMax.isdigit():
+                raise InputException("EXCEPTION: NOT A DIGIT")
+        except InputException as error:
+            print(error)
+    return historyMax
 
 
 def addResult(num1, operator, num2):
+    global historyMax
+    if len(historyDict) == 0:
+        historyMax = inputMaxHistory()
     if operator != "sqrt":
         problem = num1 + operator + num2
         result = calculate(num1, operator, num2)
@@ -14,6 +30,8 @@ def addResult(num1, operator, num2):
         problem = num1 + operator
         result = calculate(num1, operator)
     historyDict[problem] = result
+    if len(historyDict) > int(historyMax):
+        historyDict.popitem(last=False)
 
 
 def printHistory():
@@ -27,16 +45,3 @@ def getResultByIndex(historyIndex):
         if index == historyIndex:
             print("num1 =", historyDict[problem])
             return historyDict[problem]
-
-
-
-def inputMaxHistory():
-    historyMax = ""
-    while not history.isdigit():
-        try:
-            history = input("Enter the maximum amount of calculate records that you want to save: ")
-            if not history.replace(".", "", 1).isdigit():
-                raise InputException("EXCEPTION: NOT A DIGIT")
-        except InputException as error:
-            print(error)
-    return historyMax
