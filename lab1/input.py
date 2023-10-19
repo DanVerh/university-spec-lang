@@ -10,10 +10,7 @@ def inputNumber():
     while not num.replace(".", "", 1).isdigit():
         try:
             num = input("Enter the digit (ex. 1 or 1.5): ")
-            if num == "exit":
-                print("Exiting the program")
-                sys.exit(1)
-            elif not num.replace(".", "", 1).isdigit():
+            if not num.replace(".", "", 1).isdigit():
                 raise InputException("EXCEPTION: NOT A DIGIT")
         except InputException as error:
             print(error)
@@ -25,10 +22,7 @@ def inputOperator():
     while operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
         try:
             operator = input("Enter the operator (+, -, /, *, sqrt, ^, %): ")
-            if operator == "exit":
-                print("Exiting the program")
-                sys.exit(1)
-            elif operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
+            if operator not in ("+", "-", "/", "*", "sqrt", "^", "%"):
                 raise InputException("EXCEPTION: OPERATOR CAN ONLY BE +, -, /, *, sqrt, ^, or %")
         except InputException as error:
             print(error)

@@ -4,8 +4,6 @@ from input import InputException
 from collections import OrderedDict
 
 historyDict = OrderedDict()
-historyMax = 0
-
 
 def inputMaxHistory():
     historyMax = ""
