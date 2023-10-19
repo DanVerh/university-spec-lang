@@ -1,4 +1,5 @@
 from calculation import *
+from input import InputException
 
 from collections import OrderedDict
 
@@ -26,3 +27,16 @@ def getResultByIndex(historyIndex):
         if index == historyIndex:
             print("num1 =", historyDict[problem])
             return historyDict[problem]
+
+
+
+def inputMaxHistory():
+    historyMax = ""
+    while not history.isdigit():
+        try:
+            history = input("Enter the maximum amount of calculate records that you want to save: ")
+            if not history.replace(".", "", 1).isdigit():
+                raise InputException("EXCEPTION: NOT A DIGIT")
+        except InputException as error:
+            print(error)
+    return historyMax
