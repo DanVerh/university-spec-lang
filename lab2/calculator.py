@@ -24,18 +24,3 @@ class Calculator:
         if self.num2 is not None:
             num2 = float(self.num2)
         return operators.get(self.operator)(num1, num2)
-
-    #def nextOption(self, history):
-    #    close = input("Do you want to continue or see history? (y/n/h): ")
-    #    while close not in ("y", "n"):
-    #        if close == "n":
-    #            print("Exiting the program")
-    #            sys.exit(0)
-    #        elif close == "y":
-    #            break
-    #        elif close == "h":
-    #
-    #            close = input("Do you want to continue? (y/n): ")
-    #        else:
-    #            close = input("Please provide the correct input (y/n/h): ")
-    #    return close

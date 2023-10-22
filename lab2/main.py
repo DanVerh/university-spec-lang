@@ -1,7 +1,5 @@
-from calculator import *
-from history import *
+from interface import *
 
-history = History()
-calculator = Calculator()
-history.addResult(calculator)
-history.printHistory()
+while True:
+    interface = Interface()
+    interface.start()
