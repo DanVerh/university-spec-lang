@@ -1,4 +1,7 @@
 from calculator import *
+from history import *
 
+history = History()
 calculator = Calculator()
-print(calculator.calculate())
+history.addResult(calculator)
+history.printHistory()
