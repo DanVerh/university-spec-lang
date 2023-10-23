@@ -1,4 +1,6 @@
 import sys
+import shutil
+
 import pyfiglet
 from termcolor import colored
 
@@ -15,4 +17,8 @@ class TextFormatter:
         self.color = input("Enter the text color: ")
 
     def __str__(self):
-        return colored(self.font.renderText(self.text), self.color)
+        text = self.font.renderText(self.text)
+        terminal_width = shutil.get_terminal_size().columns
+        padding = " " * ((terminal_width - len(text.strip().split('\n')[0])) // 2)
+        text = "\n".join(padding + line for line in text.split('\n'))
+        return colored(text, self.color)
