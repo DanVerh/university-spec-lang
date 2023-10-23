@@ -1,5 +1,8 @@
+from allowedInput import *
+
 class InputException(Exception):
     pass
+
 
 def inputText():
     text = ""
@@ -12,6 +15,7 @@ def inputText():
             print(error)
     return text
 
+
 def inputSize(text):
     size = ""
     while not size.isdigit() or int(size) < len(text):
@@ -22,3 +26,27 @@ def inputSize(text):
         except InputException as error:
             print(error)
     return size
+
+
+def inputColor():
+    color = ""
+    while color not in colors:
+        try:
+            color = input("Enter the desired color: ")
+            if color not in colors:
+                raise InputException("EXCEPTION: PROVIDE ONLY ALLOWED COLOR")
+        except InputException as error:
+            print(error)
+    return color
+
+
+def inputFont():
+    font = ""
+    while font not in fonts:
+        try:
+            font = input("Enter the desired font: ")
+            if font not in fonts:
+                raise InputException("EXCEPTION: PROVIDE ONLY ALLOWED FONT")
+        except InputException as error:
+            print(error)
+    return font

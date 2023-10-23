@@ -4,19 +4,14 @@ import shutil
 import pyfiglet
 from termcolor import colored
 
-from fonts import fonts
 from input import *
 
 
 class TextFormatter:
     def __init__(self):
         self.text = inputText()
-        font = input("Enter the desired font: ")
-        if font not in fonts:
-            sys.exit(1)
-        self.color = input("Enter the text color: ")
-        self.font = pyfiglet.Figlet(font=font.lower(), width=int(inputSize(self.text)))
-
+        self.color = inputColor()
+        self.font = pyfiglet.Figlet(font=inputFont().lower(), width=int(inputSize(self.text)))
 
     def __str__(self):
         text = self.font.renderText(self.text)
