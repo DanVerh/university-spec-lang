@@ -27,7 +27,13 @@ class TextFormatter:
         self.text = "\n".join(padding + line for line in text.split('\n'))
         return colored(self.text, self.color)
     
-    def fileOutput(self):
-        text = str(self.text)
-        with open("./output.txt", "w") as file:
-            file.write(text)
+    def saveOutput(self):
+        save = ""
+        while save not in ("y", "n"):
+            save = input("Do you want to save the output to the file (y/n)? ")
+            if save == "y":
+                text = str(self.text)
+                with open("./output.txt", "w") as file:
+                    file.write(text)
+        else:
+            sys.exit(0)
