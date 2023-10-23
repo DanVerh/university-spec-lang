@@ -20,5 +20,10 @@ class TextFormatter:
         text = self.font.renderText(self.text)
         terminal_width = shutil.get_terminal_size().columns
         padding = " " * ((terminal_width - len(text.strip().split('\n')[0])) // 2)
-        text = "\n".join(padding + line for line in text.split('\n'))
-        return colored(text, self.color)
+        self.text = "\n".join(padding + line for line in text.split('\n'))
+        return colored(self.text, self.color)
+    
+    def fileOutput(self):
+        text = str(self.text)
+        with open("./output.txt", "w") as file:
+            file.write(text)
