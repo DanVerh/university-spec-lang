@@ -9,7 +9,9 @@ from fonts import fonts
 
 class TextFormatter:
     def __init__(self):
-        self.text = input("Enter the text that you want to format: ")
+        self.text = ""
+        while not self.text.isalpha():
+            self.text = input("Enter the text that you want to format (only English letters): ")
         font = input("Enter the desired font: ")
         if font not in fonts:
             sys.exit(1)
