@@ -1,5 +1,6 @@
 import sys
 import pyfiglet
+from termcolor import colored
 
 from fonts import fonts
 
@@ -11,9 +12,7 @@ class TextFormatter:
         if font not in fonts:
             sys.exit(1)
         self.font = pyfiglet.Figlet(font=font.lower())
+        self.color = input("Enter the text color: ")
 
     def __str__(self):
-        return self.font.renderText(self.text)
-
-
-
+        return colored(self.font.renderText(self.text), self.color)
