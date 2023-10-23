@@ -13,8 +13,10 @@ class TextFormatter:
         font = input("Enter the desired font: ")
         if font not in fonts:
             sys.exit(1)
-        self.font = pyfiglet.Figlet(font=font.lower())
+        self.size = input("Enter the text size: ")
         self.color = input("Enter the text color: ")
+        self.font = pyfiglet.Figlet(font=font.lower(), width=int(self.size))
+
 
     def __str__(self):
         text = self.font.renderText(self.text)
