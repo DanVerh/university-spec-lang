@@ -1,7 +1,5 @@
-import sys
-
-from input import *
-from calculation import *
+from .input import *
+from .calculation import *
 
 
 class Calculator:

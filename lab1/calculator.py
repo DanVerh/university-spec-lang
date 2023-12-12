@@ -1,8 +1,9 @@
-from history import *
-from input import *
-from calculation import *
+from .history import *
+from .input import *
+from .calculation import *
 
 count = 0
+
 
 def inputProblem():
     historyLen = len(historyDict)

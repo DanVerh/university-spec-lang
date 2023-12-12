@@ -1,4 +1,4 @@
-from calculator import *
+from .calculator import *
 
 from collections import OrderedDict
 

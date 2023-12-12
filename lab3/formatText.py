@@ -2,9 +2,10 @@ import sys
 import shutil
 
 import pyfiglet
+from pyfiglet import Figlet
 from termcolor import colored
 
-from input import *
+from .input import *
 
 
 class TextFormatter:
@@ -26,7 +27,7 @@ class TextFormatter:
             save = input("Do you want to save the output to the file (y/n)? ")
             if save == "y":
                 text = str(self.text)
-                with open("./output.txt", "w") as file:
+                with open("./lab3/outputs/output.txt", "w") as file:
                     file.write(text)
         else:
             sys.exit(0)

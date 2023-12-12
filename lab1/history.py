@@ -1,5 +1,5 @@
-from calculation import *
-from input import InputException
+from .calculation import *
+from .input import InputException
 
 from collections import OrderedDict
 

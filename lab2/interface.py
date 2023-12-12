@@ -1,7 +1,6 @@
-from history import *
-from calculator import *
-
-history = History()
+from .history import *
+from .calculator import *
+import sys
 
 
 class Interface:

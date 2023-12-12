@@ -1,4 +1,5 @@
-from allowedInput import *
+from .allowedInput import *
+
 
 class InputException(Exception):
     pass
