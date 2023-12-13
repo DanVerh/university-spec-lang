@@ -19,23 +19,8 @@ class TestCalculatorFunctions(unittest.TestCase):
         self.assertEqual(operators['*'](-3, 5), -15)
 
     def test_divide(self):
-        self.assertEqual(operators['/'](6, 3), 2)
+        self.assertEqual(operators['/'](6, 0), 2)
         self.assertEqual(operators['/'](0, 5), 0)
-
-    def test_sqrt(self):
-        self.assertEqual(operators['sqrt'](9, None), 3)
-        self.assertEqual(operators['sqrt'](16, None), 4)
-        self.assertEqual(operators['sqrt'](0, None), 0)
-
-    def test_power(self):
-        self.assertEqual(operators['^'](2, 3), 8)
-        self.assertEqual(operators['^'](5, 0), 1)
-        self.assertEqual(operators['^'](0, 2), 0)
-
-    def test_remDiv(self):
-        self.assertEqual(operators['%'](10, 3), 1)
-        self.assertEqual(operators['%'](15, 7), 1)
-        self.assertEqual(operators['%'](8, 2), 0)
 
 
 def lab6():

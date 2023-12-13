@@ -7,7 +7,7 @@ from lab6 import *
 
 
 def main():
-    lab6()
+    lab5()
 
 
 if __name__ == "__main__":
