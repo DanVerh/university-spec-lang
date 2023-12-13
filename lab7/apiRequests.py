@@ -1,3 +1,6 @@
+import csv
+import json
+
 import requests
 from prettytable import PrettyTable
 from datetime import datetime
@@ -88,6 +91,7 @@ class Request:
                                user.get('login', {}).get('username', 'N/A'),
                                formattedBirthdate])
             print(table)
+            self.saveOutput(users)
 
     def printOneUser(self):
         user = self.getUserByUsername()
@@ -106,6 +110,37 @@ class Request:
             print(colored("username  :", self.color), user.get('login', {}).get('username', 'NULL'))
             print(colored("birthdate :", self.color), formattedBirthdate)
             print()
+            self.saveOutput(user)
+
+    def saveOutput(self, output):
+        while True:
+            format = input("Save the file as 1 - JSON, 2 - CSV, 3 - TXT, 4 - Exit: ")
+            if format == "1":
+                if output:
+                    with open('./lab7/outputs/output.json', 'w') as json_file:
+                        json.dump(output, json_file, indent=2)
+                    print(f"Users data saved to ./lab7/outputs/output.json")
+                else:
+                    print("No users to save")
+            elif format == "2":
+                if output:
+                    with open('./lab7/outputs/output.csv', 'w', newline='') as csv_file:
+                        writer = csv.writer(csv_file)
+                        writer.writerows([user.values() for user in output])
+                    print(f"Users data saved to ./lab7/outputs/output.csv")
+                else:
+                    print("No users to save.")
+            elif format == "3":
+                if output:
+                    with open('./lab7/outputs/output.txt', 'w') as txt_file:
+                        txt_file.write(str(output))
+                    print(f"Users data saved to ./lab7/outputs/output.txt")
+                else:
+                    print("No users to save.")
+            elif format == "4":
+                break
+            else:
+                print("Enter number 1 - 4")
 
 
 
