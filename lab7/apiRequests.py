@@ -6,7 +6,7 @@ from prettytable import PrettyTable
 from datetime import datetime
 from termcolor import colored
 
-from history import History
+from .history import History
 from lab3 import inputColor
 
 class InputException(Exception):
@@ -156,9 +156,3 @@ class Request:
         frame_info = inspect.stack()[2]
         calling_function_name = frame_info[3]
         return calling_function_name
-
-
-
-request = Request()
-request.printUsersList()
-request.history.printHistory()
