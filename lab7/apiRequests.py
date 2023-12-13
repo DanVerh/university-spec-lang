@@ -1,10 +1,12 @@
 import csv
+import inspect
 import json
-
 import requests
 from prettytable import PrettyTable
 from datetime import datetime
 from termcolor import colored
+
+from history import History
 from lab3 import inputColor
 
 class InputException(Exception):
@@ -14,6 +16,7 @@ class Request:
     def __init__(self):
         self.url = "https://jsonplaceholder.org/users"
         self.color = inputColor()
+        self.history = History()
 
     def getUsers(self):
         response = requests.get(self.url)
@@ -44,6 +47,7 @@ class Request:
             print("Error getting the result")
         else:
             print(self.getUsers())
+        self.saveOutput(self.getUsers())
 
     def printUsersList(self):
         if self.getUsers() == 0:
@@ -66,6 +70,7 @@ class Request:
                 print(colored("username  :", self.color), user.get('login', {}).get('username', 'NULL'))
                 print(colored("birthdate :", self.color), formattedBirthdate)
                 print()
+        self.saveOutput(users)
 
     def printUsersTable(self):
         if self.getUsers() == 0:
@@ -110,7 +115,6 @@ class Request:
             print(colored("username  :", self.color), user.get('login', {}).get('username', 'NULL'))
             print(colored("birthdate :", self.color), formattedBirthdate)
             print()
-            self.saveOutput(user)
 
     def saveOutput(self, output):
         while True:
@@ -120,29 +124,41 @@ class Request:
                     with open('./lab7/outputs/output.json', 'w') as json_file:
                         json.dump(output, json_file, indent=2)
                     print(f"Users data saved to ./lab7/outputs/output.json")
+                    self.history.addResult(self.getCallingFunction(), format)
                 else:
                     print("No users to save")
+                break
             elif format == "2":
                 if output:
                     with open('./lab7/outputs/output.csv', 'w', newline='') as csv_file:
                         writer = csv.writer(csv_file)
                         writer.writerows([user.values() for user in output])
                     print(f"Users data saved to ./lab7/outputs/output.csv")
+                    self.history.addResult(self.getCallingFunction(), format)
                 else:
                     print("No users to save.")
+                break
             elif format == "3":
                 if output:
                     with open('./lab7/outputs/output.txt', 'w') as txt_file:
                         txt_file.write(str(output))
                     print(f"Users data saved to ./lab7/outputs/output.txt")
+                    self.history.addResult(self.getCallingFunction(), format)
                 else:
                     print("No users to save.")
+                break
             elif format == "4":
                 break
             else:
                 print("Enter number 1 - 4")
 
+    def getCallingFunction(self):
+        frame_info = inspect.stack()[2]
+        calling_function_name = frame_info[3]
+        return calling_function_name
+
 
 
 request = Request()
-request.printUsersTable()
+request.printUsersList()
+request.history.printHistory()
