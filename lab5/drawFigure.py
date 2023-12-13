@@ -8,9 +8,6 @@ def draw3dPyramid(size):
             print(":", end=" ")
         print()
 
-# Draw the 3D pyramid
-#draw3dPyramid(10)
-
 def draw2dPyramid(size):
     for i in range(size):
         for j in range(size - i):
@@ -18,10 +15,6 @@ def draw2dPyramid(size):
         for k in range(2 * i + 1):
             print("x", end=" ")
         print()
-
-# Draw the 3D pyramid
-#draw2dPyramid(10)
-
 
 def draw3dCube(size):
 
@@ -39,8 +32,8 @@ def draw3dCube(size):
                 print("/", end=" ")
         print()
 
-# Set the size of the 3D cube
-cube_size = 50
-
-# Draw the 3D printed ASCII art cube
-draw3dCube(cube_size)
+def draw2dCube(size):
+    for i in range(size-1):
+        for j in range(size):
+            print("|", end=" ")
+        print()
