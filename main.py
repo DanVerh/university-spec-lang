@@ -5,10 +5,10 @@ from lab2 import lab2
 from lab3 import lab3
 from lab4 import lab4
 from lab5 import lab5
-from lab6 import *
-from lab7 import *
-from lab8 import *
-from mainInterface import *
+from lab6 import lab6
+from lab7 import lab7
+from lab8 import lab8
+from mainInterface import selectLab
 
 
 def main():

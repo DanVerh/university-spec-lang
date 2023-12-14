@@ -1,4 +1,3 @@
-from .history import *
 from .calculator import *
 import sys
 
@@ -17,7 +16,7 @@ class Interface:
             except InputException as error:
                 print(error)
 
-    def start(self):
+    def start(self, history):
         if self.option == "1":
             calculator = Calculator()
             print(calculator)

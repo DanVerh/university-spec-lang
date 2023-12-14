@@ -29,10 +29,3 @@ class History:
         for index, problem in enumerate(self.historyDict):
             index += 1
             print(f"{index}. {problem} = {self.historyDict[problem]}")
-
-#def getResultByIndex(historyIndex):
-#    for index, problem in enumerate(historyDict):
-#        if index == historyIndex:
-#            print("num1 =", historyDict[problem])
-#            return historyDict[problem]
-#

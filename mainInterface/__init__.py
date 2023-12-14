@@ -1,2 +1,2 @@
 from .mainInterface import *
-PACKAGE_NAME = "runner"
+PACKAGE_NAME = "interface"
