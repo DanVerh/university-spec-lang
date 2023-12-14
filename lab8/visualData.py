@@ -4,7 +4,7 @@ from matplotlib import pyplot
 
 class VisualData:
     def __init__(self):
-        self.data = pandas.read_csv('./inputs/data.csv')
+        self.data = pandas.read_csv('./lab8/inputs/data.csv')
 
     def getExtremes(self):
         extremes = self.data.max()
@@ -21,7 +21,7 @@ class VisualData:
         pyplot.xlabel('Index')
         pyplot.ylabel('Value')
         pyplot.legend()
-        pyplot.savefig('./outputs/simpleVisual.png')
+        pyplot.savefig('./lab8/outputs/simpleVisual.png')
         print("Diagram saved to the file./outputs/simpleVisual.png ")
         pyplot.show()
         print("Simple diagram generated")
