@@ -1,7 +1,11 @@
 from .formatText import *
 
 
-def lab3():
-    formattedText = TextFormatter()
-    print(formattedText)
-    formattedText.saveOutput()
+class Lab3:
+    pass
+
+    @staticmethod
+    def run():
+        formattedText = TextFormatter()
+        print(formattedText)
+        formattedText.saveOutput()

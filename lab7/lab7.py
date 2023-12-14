@@ -1,7 +1,11 @@
 from .interface import *
 
 
-def lab7():
-    interface = Interface()
-    while True:
-        interface.start()
+class Lab7:
+    pass
+
+    @staticmethod
+    def run():
+        interface = Interface()
+        while True:
+            interface.start()

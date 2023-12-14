@@ -1,2 +1,2 @@
-from .lab4 import lab4
+from .lab4 import *
 PACKAGE_NAME = "lab4"

@@ -1,7 +1,11 @@
 from .art3d import *
 
 
-def lab5():
-    art = Art3D()
-    art.printFigure()
-    art.saveOutput()
+class Lab5:
+    pass
+
+    @staticmethod
+    def run():
+        art = Art3D()
+        art.printFigure()
+        art.saveOutput()
