@@ -11,6 +11,7 @@ class VisualData:
         return extremes
 
     def printExtremes(self):
+        print("Extreme values: ")
         print(self.getExtremes())
 
     def simpleVisual(self):
@@ -21,7 +22,10 @@ class VisualData:
         pyplot.ylabel('Value')
         pyplot.legend()
         pyplot.savefig('./outputs/simpleVisual.png')
+        print("Diagram saved to the file./outputs/simpleVisual.png ")
         pyplot.show()
+        print("Simple diagram generated")
+        print()
 
     def multDiagrams(self):
         fig, axes = pyplot.subplots(nrows=1, ncols=2, figsize=(12, 5))
@@ -31,3 +35,5 @@ class VisualData:
         axes[1].set_title('Histogram')
         pyplot.tight_layout()
         pyplot.show()
+        print("Multiple diagrams generated")
+        print()
